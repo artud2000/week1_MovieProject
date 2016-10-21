@@ -13,6 +13,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieDetailImageView: UIImageView!
     var imageData: Data!
     var movieDescription: String!
+    var movieTitle: String!
     
     @IBOutlet weak var movieDescriptionLabel: UILabel!
     @IBOutlet weak var descriptionContainerView: UIView!
@@ -22,6 +23,7 @@ class MovieDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.title = movieTitle
         movieDetailImageView.image = UIImage(data: imageData)
         movieDescriptionLabel.text = movieDescription
     }

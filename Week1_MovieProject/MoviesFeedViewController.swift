@@ -12,6 +12,8 @@ import UIKit
 class MoviesFeedViewController: UIViewController {
     @IBOutlet weak var moviesTableView: UITableView!
     @IBOutlet var dataProvider: FeedManager!
+    var currentPage: Int = 1
+    var currentMode: String = "now_playing"
     
     lazy var refreshControl: UIRefreshControl = {
         let tempRefresh = UIRefreshControl()
@@ -21,7 +23,7 @@ class MoviesFeedViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.pullDownTriggered(refreshControl:)), name: NSNotification.Name(rawValue: REQUEST_MORE_DATA_NOTIFICATION), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.increasePaginationForDataRequest), name: NSNotification.Name(rawValue: REQUEST_MORE_DATA_NOTIFICATION), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.searchAction(notification:)), name: NSNotification.Name(rawValue: SEARCH_NOTIFICATION), object: nil)
         
         moviesTableView.delegate = dataProvider
@@ -31,7 +33,13 @@ class MoviesFeedViewController: UIViewController {
         refreshData()
     }
     
+    func increasePaginationForDataRequest() {
+        currentPage = currentPage + 1
+        refreshData()
+    }
+    
     func pullDownTriggered(refreshControl: UIRefreshControl) {
+        currentPage = 1
         refreshData()
     }
 
@@ -40,14 +48,19 @@ class MoviesFeedViewController: UIViewController {
     }
     
     func refreshData() {
-        NetworkManager.retrieveFeed(type: "now_playing") { (movies: [Movie]?) in
+        if self.parent?.tabBarController?.selectedIndex == 0 {
+            currentMode = "now_playing"
+        } else {
+            currentMode = "top_rated"
+        }
+        
+        NetworkManager.retrieveFeed(type: currentMode, page: currentPage) { (movies: [Movie]?, currentPage: Int) in
             DispatchQueue.main.async {
                 if self.dataProvider.moviesArray.count == 0 {
                     self.dataProvider.moviesArray = movies!
                 } else {
                     self.dataProvider.moviesArray += movies!
                 }
-                
                 self.moviesTableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
@@ -59,5 +72,6 @@ class MoviesFeedViewController: UIViewController {
         let vc: MovieDetailViewController = segue.destination as! MovieDetailViewController
         vc.imageData = cell.imageData
         vc.movieDescription = cell.movieDescriptionLabel.text
+        vc.movieTitle = cell.movieTitleLabel.text
     }
 }
