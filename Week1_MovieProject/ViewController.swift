@@ -25,16 +25,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         moviesSearchBar.delegate = searchManager
-        
-        self.addChildViewController(moviesFeedViewController)
-        self.title = "Now Playing"
+        //self.title = "Now Playing"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.feedContainerView.addSubviewInContainerView(subView: moviesFeedViewController.view)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.addChildViewController(moviesFeedViewController)
+        self.feedContainerView.addSubviewInContainerView(subView: moviesFeedViewController.view)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

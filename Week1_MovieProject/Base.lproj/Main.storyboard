@@ -31,13 +31,13 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YDa-s8-eod" secondAttribute="bottom" id="Ert-xH-yMj"/>
                             <constraint firstItem="YDa-s8-eod" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JHb-Mk-SPC"/>
                             <constraint firstItem="n7f-Qv-1nb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="T6C-nQ-GQq"/>
-                            <constraint firstItem="YDa-s8-eod" firstAttribute="top" secondItem="n7f-Qv-1nb" secondAttribute="bottom" id="cZl-rH-htQ"/>
+                            <constraint firstItem="YDa-s8-eod" firstAttribute="top" secondItem="n7f-Qv-1nb" secondAttribute="bottom" constant="20" id="cZl-rH-htQ"/>
                             <constraint firstItem="n7f-Qv-1nb" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="gXI-R3-t4F"/>
                             <constraint firstItem="n7f-Qv-1nb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hUW-jU-O8E"/>
                             <constraint firstItem="YDa-s8-eod" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="xQd-ZU-7y8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="pc7-sh-p8E"/>
+                    <navigationItem key="navigationItem" id="iG4-40-lOm"/>
                     <connections>
                         <outlet property="feedContainerView" destination="YDa-s8-eod" id="8t4-zz-3B4"/>
                         <outlet property="moviesSearchBar" destination="n7f-Qv-1nb" id="gge-tb-wD2"/>
@@ -47,7 +47,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="TGe-NN-70A" customClass="SearchManager" customModule="Week1_MovieProject" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2015.2" y="138.98050974512745"/>
         </scene>
         <!--Movies Feed View Controller-->
         <scene sceneID="li7-ri-6lK">
@@ -65,10 +65,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="91" id="zf1-vL-IEQ" customClass="MovieCell" customModule="Week1_MovieProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="91"/>
+                                        <rect key="frame" x="0.0" y="28" width="1000" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zf1-vL-IEQ" id="ilA-k2-zZL">
-                                            <frame key="frameInset" width="375" height="90"/>
+                                            <frame key="frameInset" width="1000" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2B3-Oo-dmq">
@@ -133,7 +133,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E42-uI-OxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="fiS-9Y-4TK" customClass="FeedManager" customModule="Week1_MovieProject" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="1973.5999999999999" y="128.18590704647679"/>
+            <point key="canvasLocation" x="2912.8000000000002" y="128.18590704647679"/>
         </scene>
         <!--Movie Detail View Controller-->
         <scene sceneID="duH-iQ-0Qv">
@@ -148,22 +148,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mcf-iv-FpP"/>
+                            <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNk-Qn-eXo">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hji-SO-usr">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hji-SO-usr" secondAttribute="trailing" constant="8" id="Pk3-nB-iYQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="hji-SO-usr" secondAttribute="bottom" constant="8" id="UB4-dz-8dz"/>
+                                    <constraint firstItem="hji-SO-usr" firstAttribute="top" secondItem="gNk-Qn-eXo" secondAttribute="top" constant="8" id="VpR-NJ-S2p"/>
+                                    <constraint firstAttribute="height" constant="212" id="uNJ-bs-sZo"/>
+                                    <constraint firstItem="hji-SO-usr" firstAttribute="leading" secondItem="gNk-Qn-eXo" secondAttribute="leading" constant="8" id="voa-y2-Yqi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Mcf-iv-FpP" firstAttribute="width" secondItem="g5f-dc-hv1" secondAttribute="width" id="2Qc-HA-Npz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gNk-Qn-eXo" secondAttribute="trailing" constant="14" id="4JL-9R-aOd"/>
+                            <constraint firstItem="tOm-Eh-aJG" firstAttribute="top" secondItem="gNk-Qn-eXo" secondAttribute="bottom" id="53K-b2-jAa"/>
                             <constraint firstItem="Mcf-iv-FpP" firstAttribute="leading" secondItem="g5f-dc-hv1" secondAttribute="leading" id="DSu-z7-zFe"/>
+                            <constraint firstItem="gNk-Qn-eXo" firstAttribute="leading" secondItem="g5f-dc-hv1" secondAttribute="leadingMargin" constant="14" id="Fsl-2X-8Jb"/>
                             <constraint firstItem="Mcf-iv-FpP" firstAttribute="top" secondItem="g5f-dc-hv1" secondAttribute="top" id="OEk-cy-Hy4"/>
                             <constraint firstItem="Mcf-iv-FpP" firstAttribute="height" secondItem="g5f-dc-hv1" secondAttribute="height" id="fpH-9G-HTC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionContainerView" destination="gNk-Qn-eXo" id="dOx-tp-5at"/>
+                        <outlet property="movieDescriptionLabel" destination="hji-SO-usr" id="2Vj-Jh-bgU"/>
                         <outlet property="movieDetailImageView" destination="Mcf-iv-FpP" id="PJh-Xm-gop"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEY-YY-2I0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2894" y="139"/>
+            <point key="canvasLocation" x="3832.8000000000002" y="138.98050974512745"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="IJ3-cM-Oli">
@@ -171,16 +193,36 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="O3g-h6-nYj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="QIC-mM-VcL">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="V4L-F9-rIP"/>
+                        <segue destination="pax-rQ-tmP" kind="relationship" relationship="viewControllers" id="V4L-F9-rIP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YpU-46-wKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5eE-xz-V7W">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pax-rQ-tmP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="pc7-sh-p8E"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K1b-EK-fEo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="LL3-sx-y2a"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wvh-on-Ldz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>

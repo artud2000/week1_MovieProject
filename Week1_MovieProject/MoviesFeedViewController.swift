@@ -57,6 +57,7 @@ class MoviesFeedViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell: MovieCell = sender as! MovieCell
         let vc: MovieDetailViewController = segue.destination as! MovieDetailViewController
-        vc.movieDetailImageView.image = UIImage(data: cell.imageData)
+        vc.imageData = cell.imageData
+        vc.movieDescription = cell.movieDescriptionLabel.text
     }
 }
