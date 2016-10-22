@@ -51,7 +51,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="TGe-NN-70A" customClass="SearchManager" customModule="Week1_MovieProject" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="2525.5999999999999" y="96.7016491754123"/>
+            <point key="canvasLocation" x="2481" y="171"/>
         </scene>
         <!--Movies Feed View Controller-->
         <scene sceneID="li7-ri-6lK">
@@ -169,6 +169,18 @@
                                     <constraint firstItem="hji-SO-usr" firstAttribute="leading" secondItem="gNk-Qn-eXo" secondAttribute="leading" constant="8" id="voa-y2-Yqi"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLu-as-xrq">
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LfH-Df-r2p"/>
+                                    <constraint firstAttribute="width" constant="70" id="O8n-oH-uge"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="j8B-ao-3ZZ" eventType="touchUpInside" id="luB-Xm-wpg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -178,18 +190,21 @@
                             <constraint firstItem="Mcf-iv-FpP" firstAttribute="leading" secondItem="g5f-dc-hv1" secondAttribute="leading" id="DSu-z7-zFe"/>
                             <constraint firstItem="gNk-Qn-eXo" firstAttribute="leading" secondItem="g5f-dc-hv1" secondAttribute="leadingMargin" constant="14" id="Fsl-2X-8Jb"/>
                             <constraint firstItem="Mcf-iv-FpP" firstAttribute="top" secondItem="g5f-dc-hv1" secondAttribute="top" id="OEk-cy-Hy4"/>
+                            <constraint firstItem="bLu-as-xrq" firstAttribute="leading" secondItem="g5f-dc-hv1" secondAttribute="leadingMargin" id="QLF-h3-BGt"/>
+                            <constraint firstItem="bLu-as-xrq" firstAttribute="top" secondItem="OUh-kx-UuA" secondAttribute="bottom" id="SCC-Ay-1uQ"/>
                             <constraint firstItem="Mcf-iv-FpP" firstAttribute="height" secondItem="g5f-dc-hv1" secondAttribute="height" id="fpH-9G-HTC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionContainerView" destination="gNk-Qn-eXo" id="dOx-tp-5at"/>
+                        <outlet property="detailCloseButton" destination="bLu-as-xrq" id="VER-4x-AxN"/>
                         <outlet property="movieDescriptionLabel" destination="hji-SO-usr" id="2Vj-Jh-bgU"/>
                         <outlet property="movieDetailImageView" destination="Mcf-iv-FpP" id="PJh-Xm-gop"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEY-YY-2I0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4279" y="5"/>
+            <point key="canvasLocation" x="4277.6000000000004" y="4.9475262368815596"/>
         </scene>
         <!--Item-->
         <scene sceneID="tGC-OR-F2i">

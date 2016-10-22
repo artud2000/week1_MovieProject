@@ -11,12 +11,14 @@ import UIKit
 
 class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieDetailImageView: UIImageView!
+    @IBOutlet weak var detailCloseButton: UIButton!
+    @IBOutlet weak var movieDescriptionLabel: UILabel!
+    @IBOutlet weak var descriptionContainerView: UIView!
+    
     var imageData: Data!
     var movieDescription: String!
     var movieTitle: String!
     
-    @IBOutlet weak var movieDescriptionLabel: UILabel!
-    @IBOutlet weak var descriptionContainerView: UIView!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -26,5 +28,12 @@ class MovieDetailViewController: UIViewController {
         self.title = movieTitle
         movieDetailImageView.image = UIImage(data: imageData)
         movieDescriptionLabel.text = movieDescription
+        detailCloseButton.layer.borderWidth = CGFloat(1.0)
+        detailCloseButton.layer.borderColor = UIColor.white.cgColor
+        detailCloseButton.layer.cornerRadius = CGFloat(detailCloseButton.frame.width / 2)
+    }
+    
+    @IBAction func closeButtonTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

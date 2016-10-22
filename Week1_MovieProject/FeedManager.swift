@@ -28,19 +28,8 @@ class FeedManager: NSObject, UITableViewDataSource {
         
         let movie = moviesArray[indexPath.row]
         movieCell.imageUrl = movie.imageUrl
-        print(movie.imageUrl)
         movieCell.activityIndicator.hidesWhenStopped = true
         movieCell.activityIndicator.startAnimating()
-        NetworkManager.downloadImageWithURL(url: movie.imageUrl) { (data: Data?) in
-            DispatchQueue.main.async {
-                movieCell.imageView?.image = UIImage(data: data!)
-                movieCell.imageData = data
-                movieCell.activityIndicator.stopAnimating()
-                movieCell.movieTitleLabel.text = movie.title
-                movieCell.movieDescriptionLabel.text = movie.movieDescription
-                movieCell.setNeedsLayout()
-            }
-        }
         
         return movieCell
     }
@@ -52,7 +41,21 @@ class FeedManager: NSObject, UITableViewDataSource {
 
 extension FeedManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if ( indexPath.row >= moviesArray.count - 1 ) {
+        let movieCell = cell as! MovieCell
+        let movie = moviesArray[indexPath.row]
+        
+        NetworkManager.downloadImageWithURL(url: movieCell.imageUrl) { (data: Data?) in
+                DispatchQueue.main.async {
+                    movieCell.imageView?.image = UIImage(data: data!)
+                    movieCell.imageData = data
+                    movieCell.activityIndicator.stopAnimating()
+                    movieCell.movieTitleLabel.text = movie.title
+                    movieCell.movieDescriptionLabel.text = movie.movieDescription
+                    movieCell.setNeedsLayout()
+                }
+        }
+        
+        if ( indexPath.row == moviesArray.count - 1 ) {
             NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: REQUEST_MORE_DATA_NOTIFICATION), object: nil)
         }
     }
