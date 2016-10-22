@@ -35,6 +35,10 @@ class MovieDetailViewController: UIViewController {
         detailCloseButton.layer.borderWidth = CGFloat(3.0)
         detailCloseButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.7).cgColor
         detailCloseButton.layer.cornerRadius = CGFloat(detailCloseButton.frame.height / 2)
+        
+        descriptionContainerView.layer.borderWidth = CGFloat(3.0)
+        descriptionContainerView.layer.borderColor = UIColor(white: 1.0, alpha: 0.7).cgColor
+        descriptionContainerView.layer.cornerRadius = CGFloat(5.0)
     }
     
     @IBAction func closeButtonTapped(_ sender: AnyObject) {
