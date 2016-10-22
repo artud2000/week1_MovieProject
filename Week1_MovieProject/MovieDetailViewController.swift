@@ -28,9 +28,13 @@ class MovieDetailViewController: UIViewController {
         self.title = movieTitle
         movieDetailImageView.image = UIImage(data: imageData)
         movieDescriptionLabel.text = movieDescription
-        detailCloseButton.layer.borderWidth = CGFloat(1.0)
-        detailCloseButton.layer.borderColor = UIColor.white.cgColor
-        detailCloseButton.layer.cornerRadius = CGFloat(detailCloseButton.frame.width / 2)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        detailCloseButton.layer.borderWidth = CGFloat(3.0)
+        detailCloseButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.7).cgColor
+        detailCloseButton.layer.cornerRadius = CGFloat(detailCloseButton.frame.height / 2)
     }
     
     @IBAction func closeButtonTapped(_ sender: AnyObject) {

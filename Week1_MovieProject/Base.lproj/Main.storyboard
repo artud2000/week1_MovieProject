@@ -169,8 +169,7 @@
                                     <constraint firstItem="hji-SO-usr" firstAttribute="leading" secondItem="gNk-Qn-eXo" secondAttribute="leading" constant="8" id="voa-y2-Yqi"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLu-as-xrq">
-                                <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLu-as-xrq">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="LfH-Df-r2p"/>
                                     <constraint firstAttribute="width" constant="70" id="O8n-oH-uge"/>
