@@ -15,6 +15,15 @@ class FeedManager: NSObject, UITableViewDataSource {
     var moviesArray = [Movie]()
     var filteredMovies = [Movie]()
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.searchAction(notification:)), name: NSNotification.Name(rawValue: SEARCH_NOTIFICATION), object: nil)
+    }
+    
+    func searchAction(notification: NSNotification) {
+        print(notification)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

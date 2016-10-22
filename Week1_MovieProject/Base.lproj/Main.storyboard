@@ -45,7 +45,6 @@
                     <connections>
                         <outlet property="feedContainerView" destination="YDa-s8-eod" id="8t4-zz-3B4"/>
                         <outlet property="moviesSearchBar" destination="n7f-Qv-1nb" id="gge-tb-wD2"/>
-                        <outlet property="searchManager" destination="TGe-NN-70A" id="fb7-hJ-3rd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -250,7 +249,7 @@
                     <connections>
                         <outlet property="feedContainerView" destination="Zzd-fE-0Lq" id="IMu-hY-my4"/>
                         <outlet property="moviesSearchBar" destination="og4-Y8-Mkc" id="idf-dB-Yn7"/>
-                        <outlet property="searchManager" destination="TGe-NN-70A" id="QBL-t5-YtM"/>
+                        <outlet property="searchManager" destination="yD0-Ma-RiK" id="tY0-9w-C3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4nA-IV-jhl" sceneMemberID="firstResponder"/>

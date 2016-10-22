@@ -18,6 +18,6 @@ class SearchManager: NSObject, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "searchAction"), object: searchBar.text)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: SEARCH_NOTIFICATION), object: searchBar.text)
     }
 }

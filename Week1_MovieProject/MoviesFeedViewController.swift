@@ -24,8 +24,6 @@ class MoviesFeedViewController: UIViewController {
     
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.increasePaginationForDataRequest), name: NSNotification.Name(rawValue: REQUEST_MORE_DATA_NOTIFICATION), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.searchAction(notification:)), name: NSNotification.Name(rawValue: SEARCH_NOTIFICATION), object: nil)
-        
         moviesTableView.delegate = dataProvider
         moviesTableView.dataSource = dataProvider
         moviesTableView.insertSubview(refreshControl, at: 0)
@@ -41,10 +39,6 @@ class MoviesFeedViewController: UIViewController {
     func pullDownTriggered(refreshControl: UIRefreshControl) {
         currentPage = 1
         refreshData()
-    }
-
-    func searchAction(notification: NSNotification) {
-        print(notification)
     }
     
     func refreshData() {

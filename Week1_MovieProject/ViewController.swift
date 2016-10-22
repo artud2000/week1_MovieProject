@@ -22,20 +22,15 @@ class ViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        moviesSearchBar.delegate = searchManager
-        //self.title = "Now Playing"
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         self.addChildViewController(moviesFeedViewController)
         self.feedContainerView.addSubviewInContainerView(subView: moviesFeedViewController.view)
+        moviesSearchBar.delegate = searchManager
     }
     
     override func didReceiveMemoryWarning() {
