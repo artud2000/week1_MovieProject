@@ -48,9 +48,9 @@ class MoviesFeedViewController: UIViewController {
     
     func refreshData() {
         if self.parent?.tabBarController?.selectedIndex == 0 {
-            currentMode = "now_playing"
-        } else {
             currentMode = "top_rated"
+        } else {
+            currentMode = "now_playing"
         }
         
         NetworkManager.retrieveFeed(type: currentMode, page: currentPage) { (movies: [Movie]?, currentPage: Int) in
