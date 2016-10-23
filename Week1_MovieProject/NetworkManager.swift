@@ -26,7 +26,7 @@ class NetworkManager: NSObject {
                     completionHandler(fillMovieModel(movies: responseDictionary), responseDictionary["page"] as! Int)
                 }
             } else {
-                
+                completionHandler([], -1000)
             }
         })
         task.resume()
@@ -51,6 +51,8 @@ class NetworkManager: NSObject {
             let task: URLSessionDataTask = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
                 if ( data != nil ) {
                     completionHandler(data)
+                } else {
+                    completionHandler(nil)
                 }
             })
             task.resume()

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20D509A81DBC73D200331318 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D509A71DBC73D200331318 /* Reachability.swift */; };
+		20D509AA1DBC7B0900331318 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D509A91DBC7B0900331318 /* UIViewControllerExtension.swift */; };
 		20F106F01DB5C889001BE016 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F106EF1DB5C889001BE016 /* AppDelegate.swift */; };
 		20F106F21DB5C889001BE016 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F106F11DB5C889001BE016 /* ViewController.swift */; };
 		20F106F51DB5C889001BE016 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F106F31DB5C889001BE016 /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20D509A71DBC73D200331318 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		20D509A91DBC7B0900331318 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		20F106EC1DB5C889001BE016 /* Week1_MovieProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Week1_MovieProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20F106EF1DB5C889001BE016 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20F106F11DB5C889001BE016 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				20F1071F1DB5C94C001BE016 /* UIViewExtension.swift */,
+				20D509A91DBC7B0900331318 /* UIViewControllerExtension.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 			children = (
 				20F1072A1DB5DD23001BE016 /* FeedManager.swift */,
 				20F1072F1DB73724001BE016 /* SearchManager.swift */,
+				20D509A71DBC73D200331318 /* Reachability.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -341,6 +347,8 @@
 				20F1072B1DB5DD23001BE016 /* FeedManager.swift in Sources */,
 				20F106F01DB5C889001BE016 /* AppDelegate.swift in Sources */,
 				20F107321DB73DB5001BE016 /* MovieDetailViewController.swift in Sources */,
+				20D509A81DBC73D200331318 /* Reachability.swift in Sources */,
+				20D509AA1DBC7B0900331318 /* UIViewControllerExtension.swift in Sources */,
 				20F107301DB73724001BE016 /* SearchManager.swift in Sources */,
 				20F107261DB5D273001BE016 /* Movie.swift in Sources */,
 				20F1072D1DB5DDFA001BE016 /* MoviesFeedViewController.swift in Sources */,
@@ -592,6 +600,7 @@
 				20F107161DB5C889001BE016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20F107171DB5C889001BE016 /* Build configuration list for PBXNativeTarget "Week1_MovieProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -600,6 +609,7 @@
 				20F107191DB5C889001BE016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20F1071A1DB5C889001BE016 /* Build configuration list for PBXNativeTarget "Week1_MovieProjectUITests" */ = {
 			isa = XCConfigurationList;
@@ -608,6 +618,7 @@
 				20F1071C1DB5C889001BE016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -54,6 +54,11 @@ class MoviesFeedViewController: UIViewController {
         }
         
         NetworkManager.retrieveFeed(type: currentMode, page: currentPage) { (movies: [Movie]?, currentPage: Int) in
+            if currentPage == -1000 {
+                self.displayAlert(title: "Connection Error", message: "Upss, Something went wrong")
+            }
+            
+            
             DispatchQueue.main.async {
                 if self.dataProvider.moviesArray.count == 0 {
                     self.dataProvider.moviesArray = movies!
