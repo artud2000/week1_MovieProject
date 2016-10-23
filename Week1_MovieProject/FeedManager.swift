@@ -98,4 +98,16 @@ extension FeedManager: UITableViewDelegate {
             NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: REQUEST_MORE_DATA_NOTIFICATION), object: nil)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let movieCell = tableView.cellForRow(at: indexPath) as! MovieCell
+        movieCell.movieDescriptionLabel.textColor = UIColor.black
+        movieCell.movieTitleLabel.textColor = UIColor.black
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let movieCell = tableView.cellForRow(at: indexPath) as! MovieCell
+        movieCell.movieDescriptionLabel.textColor = UIColor.white
+        movieCell.movieTitleLabel.textColor = UIColor.white
+    }
 }
