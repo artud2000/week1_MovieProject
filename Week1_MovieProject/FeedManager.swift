@@ -65,6 +65,12 @@ final class FeedManager: NSObject, UITableViewDataSource {
         movieCell.activityIndicator.hidesWhenStopped = true
         movieCell.activityIndicator.startAnimating()
         
+        if movieCell.isSelected == true {
+            movieCell.contentView.backgroundColor = UIColor(white: 0.2, alpha: 0.4)
+        } else {
+            movieCell.contentView.backgroundColor = UIColor.white
+        }
+        
         return movieCell
     }
     
