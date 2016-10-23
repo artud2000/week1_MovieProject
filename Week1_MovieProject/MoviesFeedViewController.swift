@@ -12,7 +12,7 @@ import UIKit
 class MoviesFeedViewController: UIViewController {
     @IBOutlet weak var moviesTableView: UITableView!
     @IBOutlet var dataProvider: FeedManager!
-    var currentPage: Int = 1
+    private var currentPage: Int = 1
     var currentMode: String = "now_playing"
     
     lazy var refreshControl: UIRefreshControl = {
@@ -24,11 +24,16 @@ class MoviesFeedViewController: UIViewController {
     
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.increasePaginationForDataRequest), name: NSNotification.Name(rawValue: REQUEST_MORE_DATA_NOTIFICATION), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshTableView), name: NSNotification.Name(rawValue: RELOAD_DATA_NOTIFICATION), object: nil)
         moviesTableView.delegate = dataProvider
         moviesTableView.dataSource = dataProvider
         moviesTableView.insertSubview(refreshControl, at: 0)
         
         refreshData()
+    }
+    
+    func refreshTableView() {
+        moviesTableView.reloadData()
     }
     
     func increasePaginationForDataRequest() {

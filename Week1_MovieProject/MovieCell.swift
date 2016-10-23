@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MovieCell: UITableViewCell {
+final class MovieCell: UITableViewCell {
     var imageUrl: String!
     var imageData: Data!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!

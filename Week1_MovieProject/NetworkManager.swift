@@ -11,6 +11,7 @@ import Foundation
 let moviesURL: String = "https://api.themoviedb.org/3/movie"
 let imageURLBasePath: String = "https://image.tmdb.org/t/p"
 let moviesToken: String = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
+
 class NetworkManager: NSObject {
     class func retrieveFeed(type: String, page: Int, completionHandler: @escaping (_ data: [Movie]?, _ currentPage: Int) -> Void) {
         let requestURL = "\(moviesURL)/\(type)?api_key=\(moviesToken)&page=\(page)"

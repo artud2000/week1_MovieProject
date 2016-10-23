@@ -10,18 +10,35 @@ import Foundation
 import UIKit
 
 let REQUEST_MORE_DATA_NOTIFICATION = "requestMoreData"
+let RELOAD_DATA_NOTIFICATION = "reloadData"
 
-class FeedManager: NSObject, UITableViewDataSource {
+final class FeedManager: NSObject, UITableViewDataSource {
     var moviesArray = [Movie]()
-    var filteredMovies = [Movie]()
+    internal var filteredMovies = [Movie]()
+    internal var isSearching: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         NotificationCenter.default.addObserver(self, selector: #selector(self.searchAction(notification:)), name: NSNotification.Name(rawValue: SEARCH_NOTIFICATION), object: nil)
     }
     
-    func searchAction(notification: NSNotification) {
-        print(notification)
+    @objc private func searchAction(notification: NSNotification) {
+        let searchString = notification.object != nil ? notification.object as! String : ""
+        
+        if searchString.characters.count > 0 {
+            isSearching = true
+        }
+        
+        if isSearching == true {
+            filteredMovies = moviesArray.filter({ (movie: Movie) -> Bool in
+                return movie.title.contains(searchString)
+            })
+        }
+        
+        if searchString.characters.count == 0 {
+            isSearching = false
+        }
+        NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: RELOAD_DATA_NOTIFICATION), object: nil)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -29,13 +46,21 @@ class FeedManager: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isSearching == true {
+            return filteredMovies.count
+        }
         return moviesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let movieCell: MovieCell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MovieCell
         
-        let movie = moviesArray[indexPath.row]
+        var movie = moviesArray[indexPath.row]
+        
+        if isSearching == true {
+            movie = filteredMovies[indexPath.row]
+        }
+        
         movieCell.imageUrl = movie.imageUrl
         movieCell.activityIndicator.hidesWhenStopped = true
         movieCell.activityIndicator.startAnimating()
@@ -51,7 +76,12 @@ class FeedManager: NSObject, UITableViewDataSource {
 extension FeedManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let movieCell = cell as! MovieCell
-        let movie = moviesArray[indexPath.row]
+        
+        var movie = moviesArray[indexPath.row]
+        
+        if isSearching == true {
+            movie = filteredMovies[indexPath.row]
+        }
         
         NetworkManager.downloadImageWithURL(url: movieCell.imageUrl) { (data: Data?) in
                 DispatchQueue.main.async {
